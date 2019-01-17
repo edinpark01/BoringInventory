@@ -1,0 +1,3 @@
+exec_flask.sh
+.idea/
+__pycache__/
