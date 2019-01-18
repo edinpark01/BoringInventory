@@ -21,7 +21,7 @@ from flask import Flask
 def create_app(test_config=None):
     """ Creates and configures our Flask application - AKA "The application factory function" """
 
-    click.echo(" * INITIALIZING APPLICATION FACTORY FUNCTION ")
+    click.echo(" * ===> INITIALIZING APPLICATION FACTORY FUNCTION ")
 
     app = Flask(__name__, instance_relative_config=True)
     # __name__:
@@ -81,10 +81,10 @@ def create_app(test_config=None):
     from . import inventory
     app.register_blueprint(inventory.bp)
 
-    click.echo(" * Calling db.init_app(app) to register db.py function with application ")
+    click.echo(" * Calling db.init_app(app) function")
     from . import db
     db.init_app(app)
 
-    click.echo(" * RETURNING CREATED FLASK APP\n\n")
+    click.echo(" * ===> RETURNING CREATED FLASK APP\n")
 
     return app
