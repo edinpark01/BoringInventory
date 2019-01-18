@@ -33,7 +33,7 @@ def get_db():
 
 def close_db(e=None):
     """ Checks if a connection was created by checking if g.db is set.
-        This function is used in the application factory everytime after each request """
+        This function is used in the application factory after each request """
     db = g.pop('db', None)
 
     if db is not None:
