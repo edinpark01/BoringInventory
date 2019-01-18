@@ -77,13 +77,14 @@ def create_app(test_config=None):
         """ A Simple page that says hello - To make sure our Flask App is running correctly """
         return 'Hello World'
 
-    click.echo(" * Registering inventory's BluePrint with Flask Application ")
-    from . import inventory
-    app.register_blueprint(inventory.bp)
-
     click.echo(" * Calling db.init_app(app) function")
     from . import db
     db.init_app(app)
+
+    click.echo(" * Registering inventory's BluePrint with Flask Application ")
+    from . import inventory
+    app.register_blueprint(inventory.bp)
+    app.add_url_rule('/', endpoint='index')
 
     click.echo(" * ===> RETURNING CREATED FLASK APP\n")
 
