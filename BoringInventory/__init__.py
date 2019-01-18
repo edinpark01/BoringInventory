@@ -81,6 +81,10 @@ def create_app(test_config=None):
     from . import inventory
     app.register_blueprint(inventory.bp)
 
-    click.echo(" * RETURNING CREATED FLASK APP ")
+    click.echo(" * Registering db's BluePrint with Flask Application ")
+    from . import db
+    db.init_app(app)
+
+    click.echo(" * RETURNING CREATED FLASK APP\n\n")
 
     return app
