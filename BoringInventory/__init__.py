@@ -21,7 +21,7 @@ from flask import Flask
 def create_app(test_config=None):
     """ Creates and configures our Flask application - AKA "The application factory function" """
 
-    click.echo(" * ===> INITIALIZING APPLICATION FACTORY FUNCTION ")
+    click.echo("\n * ===> INITIALIZING APPLICATION FACTORY FUNCTION ")
 
     app = Flask(__name__, instance_relative_config=True)
     # __name__:
