@@ -66,13 +66,12 @@ def init_db_command():
 # be used by the application. However, since we are using a factory function, that instance is not available when
 # writing function. Instead, write a function that takes an application and does the registration.
 def init_app(app):
-
-    click.echo(" * Registering close_db and init_db_command with app")
-
+    click.echo(" * * * Running app.teardown_appcontext(close_db)")
     app.teardown_appcontext(close_db)
     # app.teardown_appcontext():
     #   tells Flaks to call that function when cleaning up after returning the response
 
+    click.echo(" * * * Adding init-db CLI command to application")
     app.cli.add_command(init_db_command)
     # app.cli.add_command():
     #   adds a new command that can be called with the flask command
