@@ -1,21 +1,30 @@
 import functools
 
-from flask import ( Blueprint, flash, g, redirect, render_template, request, url_for )
+import click
+from flask import (
+    Blueprint, flash, g, redirect, render_template, request, url_for
+)
 
-
-# TODO: Develop auth.py file
-#from BoringInventory.auth import login_required
-
-# TODO: Develop db.py file
-#from BoringInventory.db import get_db
+from BoringInventory.db import get_db
 
 from werkzeug.exceptions import abort
-
 
 bp = Blueprint('inventory', __name__)
 
 
 @bp.route('/')
 def index():
-    return render_template('inventory/index.html')
+
+    click.echo(" * Executing index() from inventory.py")
+
+    db = get_db()
+
+    data = db.execute(
+        'SELECT c.* FROM cabinets c '
+        'JOIN cabinet_info c_i '
+        'ON c.cabinet = c_i.id '
+        'ORDER BY c.cabinet ASC'
+    ).fetchall()
+
+    return render_template('inventory/index.html', data=data)
 

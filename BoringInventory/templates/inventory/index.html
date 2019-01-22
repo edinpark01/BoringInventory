@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Index Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Home Page</title>
 </head>
+
 <body>
-    <h1>Hello World Galera!!!</h1>
+    <div class="container">
+        <h2>Basic Table</h2>
+        <table class="table table-hover">
+            <thead>
+                <th>Cabinet</th>
+                <th>Location</th>
+                <th>Hostname</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Description</th>
+                <th>Asset Tag</th>
+                <th>Serial</th>
+                <th>Owners</th>
+                <th>Notes</th>
+            </thead>
+
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row['cabinet'] }}</td>
+                    <td>{{ row['location'] }}</td>
+                    <td>{{ row['hostname'] }}</td>
+                    <td>{{ row['manufacturer'] }}</td>
+                    <td>{{ row['model'] }}</td>
+                    <td>{{ row['description'] }}</td>
+                    <td>{{ row['asset_tag'] }}</td>
+                    <td>{{ row['serial'] }}</td>
+                    <td>{{ row['owners'] }}</td>
+                    <td>{{ row['notes'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 </body>
 </html>
