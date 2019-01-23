@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-        <h2>Basic Table</h2>
+        <h2>Boring App</h2>
         <table class="table table-hover">
             <thead>
                 <th>Cabinet</th>
@@ -25,6 +25,7 @@
                 <th>Serial</th>
                 <th>Owners</th>
                 <th>Notes</th>
+                <th>Actions</th>
             </thead>
 
             <tbody>
@@ -40,6 +41,11 @@
                     <td>{{ row['serial'] }}</td>
                     <td>{{ row['owners'] }}</td>
                     <td>{{ row['notes'] }}</td>
+                    <td>
+                        <a href="{{ url_for('inventory.update') }}">Edit</a>
+                        |
+                        <a href="#">Delete</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
