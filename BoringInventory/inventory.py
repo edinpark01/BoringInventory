@@ -28,3 +28,11 @@ def index():
 
     return render_template('inventory/index.html', data=data)
 
+
+@bp.route('/update')
+def update():
+
+    click.echo(" * Executing update() from inventory.py")
+
+    return render_template('inventory/update.html')
+
