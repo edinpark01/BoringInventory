@@ -2,3 +2,4 @@ exec_flask.sh
 .idea/
 __pycache__/
 instance/
+init_flask_db.sh
