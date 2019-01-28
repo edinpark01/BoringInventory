@@ -15,6 +15,7 @@
         <h2>Boring App</h2>
         <table class="table table-hover">
             <thead>
+                <th>RowID</th>
                 <th>Cabinet</th>
                 <th>Location</th>
                 <th>Hostname</th>
@@ -31,6 +32,7 @@
             <tbody>
                 {% for row in data %}
                 <tr>
+                    <td>{{ row['rowid'] }}</td>
                     <td>{{ row['cabinet'] }}</td>
                     <td>{{ row['location'] }}</td>
                     <td>{{ row['hostname'] }}</td>
@@ -42,13 +44,9 @@
                     <td>{{ row['owners'] }}</td>
                     <td>{{ row['notes'] }}</td>
                     <td>
-                        <!--<a href="{{ url_for('inventory.update', cabinet=row['cabinet'], location=row['location'] ) }}">-->
-                            <!--Edit-->
-                        <!--</a>-->
-                        <a href="{{ url_for('inventory.update', id=row['rowid']) }}">
+                        <a href="{{ url_for('inventory.update', id=row['rowid'] ) }}">
                             Edit
                         </a>
-                        |
                         <a href="#">Delete</a>
                     </td>
                 </tr>
