@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS cabinets;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT UNIQUE NOT NULL ,
+  username TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL
 );
 
@@ -15,6 +15,7 @@ CREATE TABLE cabinet_info (
 );
 
 CREATE TABLE cabinets (
+  rowid INTEGER PRIMARY KEY AUTOINCREMENT,
   cabinet TEXT,
   location INTEGER,
   hostname TEXT,
