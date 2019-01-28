@@ -29,15 +29,13 @@ def index():
     return render_template('inventory/index.html', data=data)
 
 
-@bp.route('/<cabinet>/<location>/update', methods=('GET', 'POST'))
-def update(cabinet, location):
+@bp.route('/<int:id>/update', methods=('GET', 'POST'))
+def update(id):
     db = get_db()
 
     data = db.execute(
-        'SELECT c.* FROM cabinets c '
-        'JOIN cabinet_info ci ON c.cabinet = ci.id '
-        'AND c.cabinet = ? '
-        'AND c.location = ?', (cabinet, location)
+        'SELECT * FROM cabinets c '
+        'WHERE c.rowid = ? ', (id,)
     ).fetchone()
 
     if request.method == 'POST':
@@ -46,5 +44,5 @@ def update(cabinet, location):
 
     click.echo(" * Executing update() from inventory.py")
 
-    return render_template('inventory/update.html', cabinet=cabinet, location=location, data=data)
+    return render_template('inventory/update.html', id=id, data=data)
 
