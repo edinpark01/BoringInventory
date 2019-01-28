@@ -42,7 +42,7 @@
                     <td>{{ row['owners'] }}</td>
                     <td>{{ row['notes'] }}</td>
                     <td>
-                        <a href="{{ url_for('inventory.update') }}">Edit</a>
+                        <a href="{{ url_for('inventory.update', cabinet=row['cabinet'], location=row['location'] ) }}">Edit</a>
                         |
                         <a href="#">Delete</a>
                     </td>
