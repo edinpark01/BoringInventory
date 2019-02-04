@@ -31,6 +31,9 @@ def index():
 
 @bp.route('/<int:id>/update', methods=('GET', 'POST'))
 def update(id):
+
+    click.echo(" * Executing update() from inventory.py")
+
     db = get_db()
 
     data = db.execute(
